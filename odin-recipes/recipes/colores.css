@@ -1,0 +1,34 @@
+.header1 {
+    color: rgb(164, 42, 42);
+    font-size: 40px;
+
+}
+
+.header2 {
+    color: rgb(225, 96, 10);
+    font-size: 40px;
+
+}
+
+.header3 {
+    color: rgba(206, 62, 14, 0.929);
+    font-size: 40px;
+
+}
+
+.ingredientes{
+    font-size: 22px;
+    font-weight: bold;
+    background-color: aqua;
+}
+
+.pasos{
+    font-size: 20px;
+    font-weight: bold;
+    background-color: greenyellow;
+}
+
+.pollo {
+    font-weight: bold;
+    font-style: italic;
+}
