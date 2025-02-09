@@ -1,0 +1,17 @@
+.title {
+    background-color: rgb(248, 193, 193);
+    border: 2cap;
+    padding: 2px;
+    margin: 20px;
+    text-align: center;
+}
+
+.cosas {
+    margin: 20px;
+    background: rgb(224, 224, 241);
+    padding: 10px;
+    
+    border: 3px solid blue;
+    margin: 10px;
+
+}
