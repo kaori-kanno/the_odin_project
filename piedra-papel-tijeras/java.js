@@ -16,22 +16,52 @@ function getComputerChoice() {
 
 }
 
-function getHumanChoice() {
-    let message = "elige piedra (1), papel (2) o tijera (3)"
-    let resultado_compu;
-    let option = prompt(message);
-    if (option == 1) {
-        resultado_compu = "piedra";
-    }
-    else if (option == 2) {
-        resultado_compu = "papel";
-    }
-    else {
-        resultado_compu = "tijeras";
-    }
-    return resultado_compu
-}
+// --------------------------------------------
 
+
+let humanScore = 0;
+let computerScore = 0;
+
+const div1 = document.querySelector('#tablero');
+
+// -----------------------------------------------------
+
+
+
+option = "";
+const btn1 = document.querySelector('#btn1');
+btn1.addEventListener("click", () => {
+    if (humanScore < 5 && computerScore < 5){
+    console.log("Elegiste piedra")
+    option = "piedra";
+    let juego = playGame(option);
+    console.log(juego)
+    }
+})
+
+const btn2 = document.querySelector('#btn2');
+btn2.addEventListener("click", () => {
+    if (humanScore < 5 && computerScore < 5){
+    console.log("Elegiste papel")
+    option = "papel";
+    let juego = playGame(option);
+    console.log(juego)
+    }
+})
+
+const btn3 = document.querySelector('#btn3');
+btn3.addEventListener("click", () => {
+    if (humanScore < 5 && computerScore < 5){
+    console.log("Elegiste tijera")
+    option = "tijeras";
+    let juego = playGame(option);
+    console.log(juego)
+    }
+})
+
+
+
+// -----------------------------------------------------
 function playRound(HumanChoice, computerChoice) {
     let ganador;
     if (HumanChoice == "piedra") {
@@ -64,7 +94,7 @@ function playRound(HumanChoice, computerChoice) {
         }
     }
 
-    else {
+    else if (HumanChoice == "tijeras") {
         if (computerChoice == "tijeras") {
             console.log(" Ambos sacaron tijera, empatan")
             ganador = "ninguno"
@@ -82,32 +112,32 @@ function playRound(HumanChoice, computerChoice) {
 }
 
 
-function playGame() {
+function playGame(option) {
 
-    let humanScore = 0;
-    let computerScore = 0;
-
-    n = 5
-    for (let i = 0; i < n; i++){
-        let computer = getComputerChoice(); 
-        let human = getHumanChoice();
-        let ganador = playRound(human, computer);
+    let computer = getComputerChoice(); 
+    let ganador = playRound(option, computer);
     
-        if (ganador == "human") {
-            humanScore += 1
-            console.log("El humano ganó un punto")
-        }
+    if (ganador == "human") {
+        humanScore += 1
+        console.log("El humano ganó un punto")
+    }
 
-        else if (ganador == "computer") {
-            computerScore += 1
-            console.log("Gané un punto, jajajaja")
+    else if (ganador == "computer") {
+        computerScore += 1
+        console.log("Gané un punto, jajajaja")
+    }
+    div1.textContent = `marcador actual: 
+    humano: ${humanScore} 
+             vs 
+    supermo: ${computerScore}`
+    if  (humanScore == 5 || computerScore == 5) {
+        if (humanScore > computerScore) {
+            div1.textContent = `Se acabó el juego. 
+            Gana el humano perdedor`
+        }
+        else {
+            div1.textContent = `Se acabó el juego. 
+            Gano YO`
         }
     }
-    console.log(`marcador final: 
-        humano: ${humanScore} 
-                 vs 
-        supermo: ${computerScore}`)
 }
-
-let juego = playGame();
-console.log(juego)
